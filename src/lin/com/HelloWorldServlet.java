@@ -11,9 +11,17 @@ public class HelloWorldServlet extends HttpServlet
                        HttpServletResponse res)
             throws ServletException, IOException
     {
+        // Set response content type
+        res.setContentType("text/html");
+
         PrintWriter out = res.getWriter();
-        out.println("Hello, world");
+        out.println("<H1>Hello, world</H1>");
         out.close();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
     }
 }
 
