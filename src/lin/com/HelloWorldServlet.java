@@ -14,9 +14,13 @@ public class HelloWorldServlet extends HttpServlet
         // Set response content type
         res.setContentType("text/html");
 
-        PrintWriter out = res.getWriter();
+        /*PrintWriter out = res.getWriter();
         out.println("<H1>Hello, world</H1>");
-        out.close();
+        out.close();*/
+        String user = req.getParameter("user"); // 取得請求參數
+        req.setAttribute("user", user);         // 設定請求屬性
+        req.getRequestDispatcher("hello.jsp").forward(req, res);
+
     }
 
     @Override
